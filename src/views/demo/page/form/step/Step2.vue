@@ -1,12 +1,13 @@
 <template>
   <div class="step2">
-    <a-alert message="确认转账后，资金将直接打入对方账户，无法退回。" show-icon />
-    <a-descriptions :column="1" class="mt-5">
-      <a-descriptions-item label="付款账户"> ant-design@alipay.com </a-descriptions-item>
-      <a-descriptions-item label="收款账户"> test@example.com </a-descriptions-item>
-      <a-descriptions-item label="收款人姓名"> Vben </a-descriptions-item>
-      <a-descriptions-item label="转账金额"> 500元 </a-descriptions-item>
-    </a-descriptions>
+    <a-descriptions :column="1" class="mt-5"> </a-descriptions>
+    <BasicUpload
+      :maxSize="20"
+      :maxNumber="10"
+      @change="handleChange"
+      :api="uploadApi"
+      class="my-5"
+    />
     <a-divider />
     <BasicForm @register="register" />
   </div>
@@ -14,11 +15,14 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { BasicForm, useForm } from '/@/components/Form';
+  import { BasicUpload } from '/@/components/Upload';
+  import { uploadApi } from '/@/api/sys/upload';
   import { step2Schemas } from './data';
   import { Alert, Divider, Descriptions } from 'ant-design-vue';
-
+  import { useMessage } from '/@/hooks/web/useMessage';
   export default defineComponent({
     components: {
+      BasicUpload,
       BasicForm,
       [Alert.name]: Alert,
       [Divider.name]: Divider,
@@ -66,7 +70,14 @@
         } catch (error) {}
       }
 
-      return { register };
+      const { createMessage } = useMessage();
+      return {
+        register,
+        handleChange: (list: string[]) => {
+          createMessage.info(`已上传文件${JSON.stringify(list)}`);
+        },
+        uploadApi,
+      };
     },
   });
 </script>

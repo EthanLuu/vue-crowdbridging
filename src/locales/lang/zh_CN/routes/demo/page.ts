@@ -3,7 +3,7 @@ export default {
 
   form: '表单页',
   formBasic: '基础表单',
-  formStep: '分步表单',
+  formStep: '发布任务',
   formHigh: '高级表单',
 
   desc: '详情页',

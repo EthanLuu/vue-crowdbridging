@@ -1,19 +1,19 @@
 export const wokbProd = [
   {
-    amount: '20',
-    type: '成品总数',
+    amount: '130',
+    type: '订单总数',
   },
   {
-    amount: '50',
-    type: '未发布',
-  },
-  {
-    amount: '80',
+    amount: '23',
     type: '发布中',
   },
   {
-    amount: '100',
-    type: '异常',
+    amount: '80',
+    type: '进行中',
+  },
+  {
+    amount: '27',
+    type: '已完成',
   },
 ];
 
@@ -22,10 +22,10 @@ export const todoList = (() => {
   for (let index = 0; index < 3; index++) {
     ret.push({
       id: index,
-      sbmter: '张三',
+      sbmter: 'Tom',
       sbmtTime: new Date().toLocaleString(),
-      title: '主要',
-      memo: '工作任务',
+      title: '译文审批',
+      memo: '',
     });
   }
   return ret;
@@ -35,10 +35,10 @@ export const newList = (() => {
   for (let index = 0; index < 3; index++) {
     ret.push({
       id: index,
-      sender: '李四',
+      sender: 'Jerry',
       sendTime: new Date().toLocaleString(),
       title: '代码',
-      memo: '工作任务',
+      memo: '翻译任务',
       cnteId: `c${index}`,
       cnteStas: 'opened',
       cnteRepo: index,

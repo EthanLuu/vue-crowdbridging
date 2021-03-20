@@ -67,6 +67,9 @@
 <style lang="less" scoped>
   @prefix-cls: ~'@{namespace}-app-logo';
 
+  .cb-app-logo__title {
+    line-height: 2;
+  }
   .@{prefix-cls} {
     display: flex;
     align-items: center;

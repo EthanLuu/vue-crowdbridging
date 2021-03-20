@@ -1,14 +1,14 @@
 <template>
   <PageWrapper
-    title="分步表单"
+    title="发布订单"
     contentBackground
-    content=" 将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。"
+    content="请填写您需要发布的翻译任务的详细信息"
     contentClass="p-4"
   >
     <div class="step-form-form">
       <a-steps :current="current">
-        <a-step title="填写转账信息" />
-        <a-step title="确认转账信息" />
+        <a-step title="填写任务信息" />
+        <a-step title="确认任务信息" />
         <a-step title="完成" />
       </a-steps>
     </div>

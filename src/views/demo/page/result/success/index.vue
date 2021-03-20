@@ -1,39 +1,39 @@
 <template>
   <div class="m-5 result-success">
-    <Result
-      status="success"
-      title="提交成功"
-      sub-title="提交结果页用于反馈一系列操作任务的处理结果， 如果仅是简单操作，使用 Message 全局提示反馈即可。 本文字区域可以展示简单的补充说明，如果有类似展示 “单据”的需求，下面这个灰色区域可以呈现比较复杂的内容。"
-    >
+    <Result status="success" title="已确认接受译文" sub-title="请对本次译者的表现进行打分">
       <template #extra>
+        <div class="rates">
+          <a-rate :value="stars" class="star-rates" />
+        </div>
         <a-button key="console" type="primary"> 返回列表 </a-button>
         <a-button key="buy"> 查看项目 </a-button>
         <a-button key="buy"> 打印 </a-button>
       </template>
     </Result>
+
     <div class="result-success__content">
-      <Descriptions title="项目名称">
-        <DescriptionItem label="项目 ID"> 111222 </DescriptionItem>
-        <DescriptionItem label="负责人"> Vben </DescriptionItem>
-        <DescriptionItem label="生效时间"> 2016-12-12 ~ 2017-12-12 </DescriptionItem>
-      </Descriptions>
-      <Steps :current="1" progress-dot size="small">
-        <Step title="创建项目">
-          <template #description> <div>Vben</div> <p>2016-12-12 12:32</p> </template>
-        </Step>
-        <Step title="部门初审">
+      <Steps :current="3" progress-dot size="small">
+        <Step title="发布任务">
           <template #description>
-            <p>Chad</p>
+            <p>2021-03-10 12:32</p>
           </template>
         </Step>
-        <Step title="财务复核" />
-        <Step title="完成" />
+        <Step title="提交译文">
+          <template #description>
+            <p>2021-03-20 18:40</p>
+          </template>
+        </Step>
+        <Step title="确认译文" />
+        <template #description>
+          <p>2021-03-20 20:09</p>
+        </template>
+        <Step title="评价译文" />
       </Steps>
     </div>
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, ref } from 'vue';
   import { Result, Steps, Descriptions } from 'ant-design-vue';
   export default defineComponent({
     components: {
@@ -43,6 +43,10 @@
       Descriptions,
       DescriptionItem: Descriptions.Item,
     },
+    setup() {
+      const stars = ref<number>(4);
+      return { stars };
+    },
   });
 </script>
 <style lang="less" scoped>
@@ -51,8 +55,17 @@
     background: #fff;
 
     &__content {
+      display: flex;
       padding: 24px 40px;
-      background: #fafafa;
     }
+  }
+
+  .rates {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .star-rates {
+    margin: 0 auto;
   }
 </style>

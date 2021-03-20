@@ -31,42 +31,22 @@
   import wokbImg2 from '/@/assets/images/dashboard/wokb/overtime.png';
   import wokbImg3 from '/@/assets/images/dashboard/wokb/meal.png';
   import wokbImg4 from '/@/assets/images/dashboard/wokb/leave.png';
-  import wokbImg5 from '/@/assets/images/dashboard/wokb/stamp.png';
-  import wokbImg6 from '/@/assets/images/dashboard/wokb/travel.png';
-  import wokbImg7 from '/@/assets/images/dashboard/wokb/performance.png';
-  import wokbImg8 from '/@/assets/images/dashboard/wokb/approve.png';
   const shortCuts = [
     {
       img: wokbImg1,
-      name: '考勤记录',
+      name: '译文审批',
     },
     {
       img: wokbImg2,
-      name: '加班申请',
+      name: '查看译文',
     },
     {
       img: wokbImg3,
-      name: '餐补申请',
+      name: '发布任务',
     },
     {
       img: wokbImg4,
       name: '请假',
-    },
-    {
-      img: wokbImg5,
-      name: '用章申请',
-    },
-    {
-      img: wokbImg6,
-      name: '差旅报销',
-    },
-    {
-      img: wokbImg7,
-      name: '绩效申请',
-    },
-    {
-      img: wokbImg8,
-      name: '审批',
     },
   ];
   export default defineComponent({
@@ -83,8 +63,8 @@
 
       &-img {
         width: 36px;
-        margin-left: auto;
         margin-right: auto;
+        margin-left: auto;
       }
 
       &-all {

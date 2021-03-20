@@ -1,39 +1,35 @@
 <template>
   <div class="step1">
     <div class="step1-form">
+      <BasicUpload
+        :maxSize="20"
+        :maxNumber="10"
+        @change="handleChange"
+        :api="uploadApi"
+        class="my-5"
+      />
       <BasicForm @register="register">
-        <template #fac="{ model, field }">
-          <a-input-group compact>
-            <a-select v-model:value="model['pay']" class="pay-select">
-              <a-select-option value="zfb"> 支付宝 </a-select-option>
-              <a-select-option value="yl"> 银联 </a-select-option>
-            </a-select>
-            <a-input class="pay-input" v-model:value="model[field]" />
-          </a-input-group>
-        </template>
+        <template #fac="{ model, field }"> </template>
       </BasicForm>
     </div>
     <a-divider />
     <h3>说明</h3>
-    <h4>转账到支付宝账户</h4>
-    <p>
-      如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。
-    </p>
-
-    <h4>转账到银行卡</h4>
-    <p>
-      如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。
-    </p>
+    <p> 若指定译员等级，可以在一定程度上提高翻译质量，同时请考虑不同等级译员对翻译价格的要求。 </p>
   </div>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { BasicForm, useForm } from '/@/components/Form';
   import { step1Schemas } from './data';
-
+  import { InboxOutlined } from '@ant-design/icons-vue';
+  import { useMessage } from '/@/hooks/web/useMessage';
+  import { BasicUpload } from '/@/components/Upload';
+  import { uploadApi } from '/@/api/sys/upload';
   import { Select, Input, Divider } from 'ant-design-vue';
   export default defineComponent({
     components: {
+      BasicUpload,
+      InboxOutlined,
       BasicForm,
       [Select.name]: Select,
       ASelectOption: Select.Option,
@@ -55,7 +51,6 @@
         },
         submitFunc: customSubmitFunc,
       });
-
       async function customSubmitFunc() {
         try {
           const values = await validate();
@@ -63,7 +58,14 @@
         } catch (error) {}
       }
 
-      return { register };
+      const { createMessage } = useMessage();
+      return {
+        register,
+        handleChange: (list: string[]) => {
+          createMessage.info(`已上传文件${JSON.stringify(list)}`);
+        },
+        uploadApi,
+      };
     },
   });
 </script>

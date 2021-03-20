@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <a-button-group>
+  <div style="display: flex">
+    <a-button-group style="margin: 0 auto">
       <a-button type="primary" @click="openUploadModal" preIcon="carbon:cloud-upload">
-        {{ t('component.upload.upload') }}
+        上传文本(.doc .docx .txt)
       </a-button>
       <Tooltip placement="bottom" v-if="showPreview">
         <template #title>

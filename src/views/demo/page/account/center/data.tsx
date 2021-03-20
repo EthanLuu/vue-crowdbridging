@@ -10,46 +10,18 @@ export interface TabItem {
   component: string;
 }
 
-export const tags: string[] = [
-  '很有想法的',
-  '专注设计',
-  '川妹子',
-  '大长腿',
-  '海纳百川',
-  '前端开发',
-  'vue3',
-];
+export const tags: string[] = ['翻译公司'];
 <span class="iconify" data-icon="jam:codepen-circle" data-inline="false"></span>;
 export const teams: ListItem[] = [
   {
     icon: 'ri:alipay-fill',
-    title: '科学搬砖组',
+    title: '英语客户',
     color: '#ff4000',
   },
   {
     icon: 'emojione-monotone:letter-a',
-    title: '中二少年团',
+    title: '日语客户',
     color: '#7c51b8',
-  },
-  {
-    icon: 'ri:alipay-fill',
-    title: '高逼格设计',
-    color: '#00adf7',
-  },
-  {
-    icon: 'jam:codepen-circle',
-    title: '程序员日常',
-    color: '#00adf7',
-  },
-  {
-    icon: 'fa:behance-square',
-    title: '科学搬砖组',
-    color: '#7c51b8',
-  },
-  {
-    icon: 'jam:codepen-circle',
-    title: '程序员日常',
-    color: '#ff4000',
   },
 ];
 

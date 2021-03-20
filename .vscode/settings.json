@@ -6,9 +6,8 @@
   //============= Editor ======================
   //===========================================
   "explorer.openEditors.visible": 0,
-  "editor.tabSize": 2,
   "editor.renderControlCharacters": true,
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.maxColumn": 300,
   "editor.minimap.showSlider": "always",
@@ -25,6 +24,7 @@
     "comments": true,
     "strings": true
   },
+  "editor.fontSize": 18,
   //===========================================
   //============= Other =======================
   //===========================================

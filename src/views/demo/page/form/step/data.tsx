@@ -1,6 +1,63 @@
 import { FormSchema } from '/@/components/Form';
 
+const basicOptions: LabelValueOptions = [
+  {
+    label: '不指定',
+    value: '0',
+  },
+  {
+    label: '1',
+    value: '1',
+  },
+  {
+    label: '2',
+    value: '2',
+  },
+  {
+    label: '3',
+    value: '3',
+  },
+];
+
 export const step1Schemas: FormSchema[] = [
+  {
+    field: 'money',
+    component: 'Input',
+    label: '订单总金额',
+    defaultValue: '1000',
+    required: true,
+    renderComponentContent: () => {
+      return {
+        prefix: () => '￥',
+      };
+    },
+  },
+  {
+    field: 'textLanguage',
+    component: 'Input',
+    label: '文本语言',
+    defaultValue: '英语',
+    required: true,
+  },
+  {
+    field: 'targetLanguage',
+    component: 'Input',
+    label: '目标语言',
+    defaultValue: '中文',
+    required: true,
+  },
+  {
+    field: 'userLevel',
+    component: 'Select',
+    componentProps: {
+      options: basicOptions,
+    },
+    label: '译员等级',
+    required: true,
+  },
+];
+
+export const step2Schemas: FormSchema[] = [
   {
     field: 'account',
     component: 'Select',
@@ -10,49 +67,16 @@ export const step1Schemas: FormSchema[] = [
     componentProps: {
       options: [
         {
-          label: 'anncwb@126.com',
+          label: 'cb1@gmail.com',
           value: '1',
+        },
+        {
+          label: 'cb2@gmail.com',
+          value: '2',
         },
       ],
     },
   },
-  {
-    field: 'fac',
-    component: 'InputGroup',
-    label: '收款账户',
-    required: true,
-    defaultValue: 'test@example.com',
-    slot: 'fac',
-  },
-  {
-    field: 'pay',
-    component: 'Input',
-    label: '',
-    defaultValue: 'zfb',
-    show: false,
-  },
-  {
-    field: 'payeeName',
-    component: 'Input',
-    label: '收款人姓名',
-    defaultValue: 'Vben',
-    required: true,
-  },
-  {
-    field: 'money',
-    component: 'Input',
-    label: '转账金额',
-    defaultValue: '500',
-    required: true,
-    renderComponentContent: () => {
-      return {
-        prefix: () => '￥',
-      };
-    },
-  },
-];
-
-export const step2Schemas: FormSchema[] = [
   {
     field: 'pwd',
     component: 'InputPassword',
