@@ -4,11 +4,14 @@ import {
   // Need
   Button as AntButton,
   Rate,
+  Input,
+  Slider,
 } from 'ant-design-vue';
 
+import { FrownOutlined, SmileOutlined } from '@ant-design/icons-vue';
 import { App } from 'vue';
 
-const compList = [Icon, Button, AntButton.Group, Rate];
+const compList = [Icon, Button, AntButton.Group, Rate, Input, FrownOutlined, SmileOutlined, Slider];
 
 export function registerGlobComp(app: App) {
   compList.forEach((comp: any) => {

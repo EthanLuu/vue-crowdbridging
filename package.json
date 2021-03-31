@@ -1,9 +1,9 @@
 {
-  "name": "vben-admin",
+  "name": "cb-admin",
   "version": "2.1.0",
   "author": {
-    "name": "vben",
-    "email": "anncwb@126.com",
+    "name": "cb",
+    "email": "ethanlooo@outlook.com",
     "url": "https://github.com/anncwb"
   },
   "scripts": {
